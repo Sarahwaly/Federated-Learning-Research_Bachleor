@@ -6,6 +6,7 @@ FL_WORKER_INDEX=$1
 GRPC_IP_CONFIG_FILE="./experiment/fedat/grpc_ipconfig.csv"
 CHECKPOINT_PATH="./checkpoint/fedat"
 CLIENT_CONFIG_PATH="./experiment/fedat/client_config.yaml"
+#DEPLOY_PATH="./experiment/fedat/deploy.yaml"
 
 # dataset
 DATASET=fashion-mnist       # cifar10 or MNIST or fashion-mnist
