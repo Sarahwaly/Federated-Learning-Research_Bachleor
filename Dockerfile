@@ -2,15 +2,17 @@ FROM alpine:3.13 AS builder
 
 WORKDIR /start
 
-COPY experiment/fedat/ /start/
+COPY experiment/fedat/run_fedat_distributed.sh/ /start/
 
-RUN apk add --no-cache --upgrade bash
+RUN apk add --no-cache --upgrade python3
 
-RUN chmod +x run_fedat_distributed.sh
-RUN ./run_fedat_distributed.sh
+FROM python:3.9-alpine
 
-FROM scratch
+COPY --from=builder /start/run_fedat_distributed.sh /start/
 
-COPY --from=builder /start/myfedat /
+WORKDIR /start
 
-ENTRYPOINT ["/myfedat"]
+ENTRYPOINT ["python3", "run_fedat_distributed"]
+
+
+

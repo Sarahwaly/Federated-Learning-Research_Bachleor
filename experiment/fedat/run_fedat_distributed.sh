@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -x
 
 FL_WORKER_INDEX=$1
